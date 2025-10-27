@@ -1,16 +1,54 @@
-# React + Vite
+# 💱 Currency Converter (React + Tailwind)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, glass-style currency converter built with React, Vite, and Tailwind CSS.  
+It fetches live exchange rates and lets you convert any amount from one currency to another instantly.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔄 Convert between any two currencies (USD → INR, EUR → BDT, TON → USD, etc.)
+- 🌍 Live exchange rates fetched from a public API
+- 🔁 One-click **Swap** button to flip "from" and "to" currencies
+- 📱 Responsive UI (mobile → desktop)
+- 🎨 Glassmorphism / fintech-style UI using Tailwind only
+- ⚡ Built with React + Vite for fast dev experience
+- 🔒 No API keys required
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Tech Stack
+
+- **React** (Functional Components + Hooks)
+- **Vite** (Dev server + bundler)
+- **Tailwind CSS** (Styling, glassmorphism, responsive layout)
+- **Custom React Hook** for currency fetching
+- **Public Currency API** by [@fawazahmed0](https://github.com/fawazahmed0/currency-api)
+
+---
+
+## 📸 UI Preview
+
+- Centered glass card with blur and soft glow
+- Clean currency input and dropdown controls
+- Gradient action button with cyan→blue tone
+- Swap button to reverse currencies
+
+
+---
+
+## 🧠 How It Works
+
+### 1. State management
+We store four main pieces of state in `App.jsx`:
+- `amount`: how much the user is converting
+- `from`: base currency (e.g. `"usd"`)
+- `to`: target currency (e.g. `"inr"`)
+- `convertedAmount`: result of conversion
+
+```jsx
+const [amount, setAmount] = useState(0)
+const [from, setFrom] = useState('usd')
+const [to, setTo] = useState('GBP')
+const [convertedAmount, setConvertedAmount] = useState(0)
